@@ -7,33 +7,8 @@ const api = axios.create({
 
 export const getVehicles = async (ownerId: string): Promise<Vehicle[]> => {
     // const response = await api.get(`/vehicles?owner=${ownerId}`);
-    // return response.data;
-    return [
-        {
-            id: 1,
-            model: 'Adder',
-            color: 'Red',
-            plate: 'ABC123',
-            customizations: '{"spoiler": "high", "neon": "blue"}',
-            owner: 'player_steam_id'
-        },
-        {
-            id: 2,
-            model: 'Zentorno',
-            color: 'Blue',
-            plate: 'XYZ789',
-            customizations: '{"wheels": "sport", "tint": "dark"}',
-            owner: 'player_steam_id'
-        },
-        {
-            id: 3,
-            model: 'T20',
-            color: 'Black',
-            plate: 'LMN456',
-            customizations: '{"exhaust": "dual", "interior": "carbon"}',
-            owner: 'player_steam_id'
-        }
-    ]
+    const response = await api.get(`/vehicles?owner=player1_steam_id`);
+    return response.data;
 };
 
 export const spawnVehicle = async (vehicleId: number): Promise<void> => {
