@@ -6,8 +6,8 @@ const api = axios.create({
 });
 
 export const getVehicles = async (ownerId: string): Promise<Vehicle[]> => {
-    // const response = await api.get(`/vehicles?owner=${ownerId}`);
-    const response = await api.get(`/vehicles?owner=player1_steam_id`);
+    const response = await api.get(`/vehicles?owner=${ownerId}`);
+    // const response = await api.get(`/vehicles?owner=player1_steam_id`);
     return response.data;
 };
 

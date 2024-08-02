@@ -5,11 +5,25 @@ import './App.css';
 import Title from './components/Title';
 import UserPanel from './components/Users/UserPanel';
 import { useState } from 'react';
+import { Vehicle } from './types/Vehicle';
 
 const App: React.FC = () => {
   const [ownerId, setOwnerId] = useState("admin")
-  // const ownerId = 'player_steam_id'; // Substitua pelo ID real do jogador
   const { vehicles, loading, error } = useVehicles(ownerId);
+
+  const [filter, setFilter] = useState("")
+
+  const filterVehicles = (plate: string) => {
+    console.log({ ownerId, vehicles, filter })
+    if (filter != "") {
+      const filteredVehicles = vehicles.filter((element: Vehicle) => element.plate.includes(plate));
+      return filteredVehicles
+    }
+    else {
+      return vehicles
+    }
+
+  };
 
   const handleSpawn = async (vehicleId: number) => {
     try {
@@ -27,8 +41,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Title />
-      <UserPanel />
-      <VehicleList vehicles={vehicles} onSpawn={handleSpawn} />
+      <UserPanel setUser={setOwnerId} setPlate={setFilter} />
+      <VehicleList vehicles={filterVehicles(filter)} onSpawn={handleSpawn} />
     </div>
   );
 };
