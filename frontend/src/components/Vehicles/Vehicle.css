@@ -9,13 +9,18 @@
   
   .vehicle-card {
     color: #181111;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
+    background-color: #0a8138;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
     width: 250px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
   }
   
   .vehicle-card h3 {
@@ -41,3 +46,15 @@
     background-color: #0056b3;
   }
   
+  /* table,  td {
+    border: 1px solid black;
+  } */
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 3px;
+  }

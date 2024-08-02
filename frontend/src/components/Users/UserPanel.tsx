@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserCard from "./Adm/UserCard";
+import UserCard from "./Card/UserCard";
 import './UserPanel.css'
 
 interface UserPanelProps {
