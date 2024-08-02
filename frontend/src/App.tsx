@@ -1,11 +1,14 @@
-import React from 'react';
-import VehicleList from './components/VehicleList';
+import VehicleList from './components/Vehicles/VehicleList';
 import useVehicles from './hooks/useVehicles';
 import { spawnVehicle } from './services/api';
 import './App.css';
+import Title from './components/Title';
+import UserPanel from './components/Users/UserPanel';
+import { useState } from 'react';
 
 const App: React.FC = () => {
-  const ownerId = 'player_steam_id'; // Substitua pelo ID real do jogador
+  const [ownerId, setOwnerId] = useState("admin")
+  // const ownerId = 'player_steam_id'; // Substitua pelo ID real do jogador
   const { vehicles, loading, error } = useVehicles(ownerId);
 
   const handleSpawn = async (vehicleId: number) => {
@@ -23,7 +26,8 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Garage System</h1>
+      <Title />
+      <UserPanel />
       <VehicleList vehicles={vehicles} onSpawn={handleSpawn} />
     </div>
   );

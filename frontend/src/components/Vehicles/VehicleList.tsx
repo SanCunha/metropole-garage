@@ -1,5 +1,4 @@
-import React from 'react';
-import { Vehicle } from '../types/Vehicle';
+import { Vehicle } from '../../types/Vehicle';
 import VehicleCard from './VehicleCard';
 
 interface VehicleListProps {
