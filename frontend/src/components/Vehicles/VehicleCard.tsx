@@ -1,4 +1,5 @@
 import { Vehicle } from '../../types/Vehicle';
+import './Vehicle.css'
 
 interface VehicleCardProps {
     vehicle: Vehicle;

@@ -1,33 +1,27 @@
-import VehicleList from './components/Vehicles/VehicleList';
+import React, { useState } from 'react';
 import useVehicles from './hooks/useVehicles';
-import { spawnVehicle } from './services/api';
-import './App.css';
+import VehicleService from './services/VehicleService';
+import UserPanel from './components//Users/UserPanel';
+import VehicleList from './components/Vehicles/VehicleList';
 import Title from './components/Title';
-import UserPanel from './components/Users/UserPanel';
-import { useState } from 'react';
-import { Vehicle } from './types/Vehicle';
+import "./App.css"
 
 const App: React.FC = () => {
-  const [ownerId, setOwnerId] = useState("admin")
+  const [ownerId, setOwnerId] = useState("admin");
   const { vehicles, loading, error } = useVehicles(ownerId);
-
-  const [filter, setFilter] = useState("")
+  const [filter, setFilter] = useState("");
 
   const filterVehicles = (plate: string) => {
-    console.log({ ownerId, vehicles, filter })
-    if (filter != "") {
-      const filteredVehicles = vehicles.filter((element: Vehicle) => element.plate.includes(plate));
-      return filteredVehicles
+    if (filter !== "") {
+      return vehicles.filter((vehicle) => vehicle.plate.includes(plate));
+    } else {
+      return vehicles;
     }
-    else {
-      return vehicles
-    }
-
   };
 
   const handleSpawn = async (vehicleId: number) => {
     try {
-      await spawnVehicle(vehicleId);
+      await VehicleService.spawnVehicle(vehicleId);
       alert('Vehicle spawned successfully!');
     } catch (err) {
       console.error('Failed to spawn vehicle:', err);

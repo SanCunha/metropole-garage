@@ -1,55 +1,19 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-body {
-  font-family: 'Arial', sans-serif;
   background-color: #2c2c2c;
-  color: #f1f1f1;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 100%;
 }
+
+
 
 .App {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
@@ -58,45 +22,4 @@ body {
 
 .read-the-docs {
   color: #888;
-}
-
-.vehicle-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 16px;
-}
-
-.vehicle-card {
-  color: #181111;
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  width: 250px;
-  text-align: center;
-}
-
-.vehicle-card h3 {
-  margin: 0 0 8px 0;
-}
-
-.vehicle-card p {
-  margin: 4px 0;
-}
-
-.vehicle-card button {
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  padding: 8px 16px;
-  margin-top: 8px;
-  transition: background-color 0.3s;
-}
-
-.vehicle-card button:hover {
-  background-color: #0056b3;
 }

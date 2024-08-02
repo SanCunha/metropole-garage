@@ -1,47 +1,34 @@
 import { useState } from "react";
-import AdmCard from "./Adm/AdmCard";
+import UserCard from "./Adm/UserCard";
 import './UserPanel.css'
 
 interface UserPanelProps {
-    setUser: (user: string) => void
-    setPlate: (user: string) => void
+    setUser: (user: string) => void;
+    setPlate: (plate: string) => void;
 }
 
 const UserPanel: React.FC<UserPanelProps> = ({ setUser, setPlate }) => {
     const [isAdmSwitchOn, setIsAdmSwitchOn] = useState<boolean>(true);
 
-    const handleAdmSwitchChange = () => {
-        setIsAdmSwitchOn(true);
-    };
-
-    const handleUserSwitchChange = () => {
-        setIsAdmSwitchOn(false);
-    };
-
-    const handleChangeUser = (user: string) => {
-        setUser(user)
-    }
-
-    const handleSearchAdm = (plate: string) => {
-        setPlate(plate)
-    }
+    const handleAdmSwitchChange = () => setIsAdmSwitchOn(true);
+    const handleUserSwitchChange = () => setIsAdmSwitchOn(false);
 
     return (
         <div className="user-panel">
-            <AdmCard
+            <UserCard
                 title="ADM"
                 placeholder="Placa"
                 isSwitch={isAdmSwitchOn}
                 setIsSwitch={handleAdmSwitchChange}
-                setUser={handleChangeUser}
-                setPlate={handleSearchAdm}
+                setUser={setUser}
+                setPlate={setPlate}
             />
-            <AdmCard
+            <UserCard
                 title="User"
                 placeholder="Usuário"
                 isSwitch={!isAdmSwitchOn}
                 setIsSwitch={handleUserSwitchChange}
-                setUser={handleChangeUser}
+                setUser={setUser}
             />
         </div>
     );

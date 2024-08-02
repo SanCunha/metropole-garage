@@ -1,0 +1,43 @@
+.vehicle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .vehicle-card {
+    color: #181111;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .vehicle-card h3 {
+    margin: 0 0 8px 0;
+  }
+  
+  .vehicle-card p {
+    margin: 4px 0;
+  }
+  
+  .vehicle-card button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-top: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .vehicle-card button:hover {
+    background-color: #0056b3;
+  }
+  
