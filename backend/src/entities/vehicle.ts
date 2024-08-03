@@ -19,4 +19,7 @@ export class Vehicle {
 
     @Column()
     owner!: string;
+
+    @Column({default: false})
+    spawned!: boolean
 }

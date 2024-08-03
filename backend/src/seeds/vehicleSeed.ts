@@ -6,40 +6,42 @@ const seedVehicles = async () => {
 
     const vehicleRepository = AppDataSource.getRepository(Vehicle);
 
+    await vehicleRepository.clear()
+
     const vehicles = [
         {
             model: 'Adder',
-            color: 'Red',
+            color: 'Vermelho',
             plate: 'ABC123',
-            customizations: '{"spoiler": "high", "neon": "blue"}',
+            customizations: '{"aerofólio": "alto", "neon": "azul"}',
             owner: 'player1_steam_id'
         },
         {
             model: 'Cheetah',
-            color: 'Blue',
+            color: 'Azul',
             plate: 'DEF456',
-            customizations: '{"spoiler": "low", "neon": "red"}',
+            customizations: '{"aerofólio": "baixo", "neon": "vermelho"}',
             owner: 'player1_steam_id'
         },
         {
             model: 'EntityXF',
-            color: 'Green',
+            color: 'Verde',
             plate: 'GHI789',
-            customizations: '{"spoiler": "medium", "neon": "green"}',
+            customizations: '{"aerofólio": "médio", "neon": "verde"}',
             owner: 'player1_steam_id'
         },
         {
             model: 'Zentorno',
-            color: 'Yellow',
+            color: 'Amarelo',
             plate: 'JKL012',
-            customizations: '{"spoiler": "high", "neon": "yellow"}',
+            customizations: '{"aerofólio": "alto", "neon": "amarelo"}',
             owner: 'player2_steam_id'
         },
         {
             model: 'T20',
-            color: 'Black',
+            color: 'Preto',
             plate: 'MNO345',
-            customizations: '{"spoiler": "low", "neon": "purple"}',
+            customizations: '{"aerofolio": "baixo", "neon": "roxo"}',
             owner: 'player2_steam_id'
         },
     ];
