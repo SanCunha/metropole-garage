@@ -48,7 +48,7 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn }) => {
             <p>Cor: {vehicle.color}</p>
             <p>Placa: {vehicle.plate}</p>
             {renderCustomizations()}
-            <button onClick={() => onSpawn(vehicle.id)}>Spawn</button>
+            <button className={vehicle.spawned ? "isSpawned" : "isNotSpawned"} onClick={() => onSpawn(vehicle.id)}>{vehicle.spawned ? "Despawn" : "Spawn"}</button>
         </div>
     );
 };

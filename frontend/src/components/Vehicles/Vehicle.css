@@ -58,3 +58,7 @@
   th {
     padding: 3px;
   }
+
+  .isSpawned {
+    background-color: #ff0000 !important;
+  }
