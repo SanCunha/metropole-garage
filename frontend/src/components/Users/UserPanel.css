@@ -1,5 +1,9 @@
 .user-panel {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #a6aca0;
+    color: #a68a5a;
+    border-radius: 8px;
 }

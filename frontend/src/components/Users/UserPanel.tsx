@@ -1,7 +1,6 @@
-import { useState } from "react";
-import UserCard from "./Card/UserCard";
-import './UserPanel.css'
-
+import React, { useState } from 'react';
+import "./UserPanel.css"
+import './Card/UserCard.css'
 interface UserPanelProps {
     setUser: (user: string) => void;
     setPlate: (plate: string) => void;
@@ -10,26 +9,59 @@ interface UserPanelProps {
 const UserPanel: React.FC<UserPanelProps> = ({ setUser, setPlate }) => {
     const [isAdmSwitchOn, setIsAdmSwitchOn] = useState<boolean>(true);
 
-    const handleAdmSwitchChange = () => setIsAdmSwitchOn(true);
-    const handleUserSwitchChange = () => setIsAdmSwitchOn(false);
+    const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (!isAdmSwitchOn) {
+            setUser(e.target.value);
+        } else {
+            setPlate(e.target.value);
+        }
+    };
+
+    const handleChangeSwitch = () => {
+        if (isAdmSwitchOn) {
+            setUser("");
+        } else {
+            setUser("admin");
+            setPlate("");
+        }
+        setIsAdmSwitchOn(!isAdmSwitchOn)
+    }
 
     return (
         <div className="user-panel">
-            {/* <UserCard
-                title="ADM"
-                placeholder="Placa"
-                isSwitch={isAdmSwitchOn}
-                setIsSwitch={handleAdmSwitchChange}
-                setUser={setUser}
-                setPlate={setPlate}
-            /> */}
-            <UserCard
-                title="User"
-                placeholder="Usuário"
-                isSwitch={!isAdmSwitchOn}
-                setIsSwitch={handleUserSwitchChange}
-                setUser={setUser}
-            />
+            <div className="user-card">
+                <div>
+                    <h3>User</h3>
+                </div>
+                <label className="switch">
+                    <input
+                        type="checkbox"
+                        checked={isAdmSwitchOn}
+                        onChange={handleChangeSwitch}
+                    />
+                    <span className="slider"></span>
+                </label>
+                <div>
+                    <h3>ADM</h3>
+                </div>
+            </div>
+            <div >
+                {isAdmSwitchOn ? (
+                    <input
+                        type="text"
+                        placeholder="Placa"
+                        className="search-input"
+                        onChange={handleChangeInput}
+                    />
+                ) : (
+                    <input
+                        type="text"
+                        placeholder="Usuário"
+                        className="search-input"
+                        onChange={handleChangeInput}
+                    />
+                )}
+            </div>
         </div>
     );
 };
