@@ -41,7 +41,7 @@ const seedVehicles = async () => {
             model: 'T20',
             color: 'Preto',
             plate: 'MNO345',
-            customizations: '{"aerofolio": "baixo", "neon": "roxo"}',
+            customizations: '{"aerofólio": "baixo", "neon": "roxo"}',
             owner: 'player2_steam_id'
         },
     ];
