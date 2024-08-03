@@ -90,6 +90,9 @@ const seedVehiclesInServer = async () => {
 
   // Salve a entidade VehicleInServer
   await vehicleInServerRepository.save(vehicleInServerEntity);
+
+  await vehicleRepository.update(vehicle, { spawned: true });
+
   console.log("Seeded vehicle in server:", vehicleInServerEntity);
 };
 
