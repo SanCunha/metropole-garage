@@ -10,7 +10,7 @@ interface VehicleListProps {
 const VehicleList: React.FC<VehicleListProps> = ({ vehicles, onSpawn }) => {
     return (
         <div className="vehicle-list">
-            {vehicles.map((vehicle) => <VehicleCard vehicle={vehicle} onSpawn={onSpawn} />)}
+            {vehicles.map((vehicle) => <VehicleCard key={vehicle.plate} vehicle={vehicle} onSpawn={onSpawn} />)}
         </div>
     );
 };

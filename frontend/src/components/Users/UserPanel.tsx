@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./UserPanel.css"
-import './Card/UserCard.css'
+
 interface UserPanelProps {
     setUser: (user: string) => void;
     setPlate: (plate: string) => void;

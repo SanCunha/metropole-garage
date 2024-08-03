@@ -14,31 +14,6 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn }) => {
 
     const renderCustomizations = () => {
         const customizations: { [key: string]: string } = JSON.parse(vehicle.customizations);
-
-        // return (
-        //     <table>
-        //         {/* <thead>
-        //             <th>
-        //                 Componente
-        //             </th>
-        //             <th>
-        //                 Configuração
-        //             </th>
-        //         </thead> */}
-        //         <tbody>
-        //             {Object.entries(customizations).map(([key, value]) => (
-        //                 <tr>
-        //                     <td key={key}>
-        //                         {toUpperCaseFirstLetter(key)}
-        //                     </td>
-        //                     <td key={key + value}>
-        //                         {toUpperCaseFirstLetter(value)}
-        //                     </td>
-        //                 </tr>
-        //             ))}
-        //         </tbody>
-        //     </table>
-        // );
         return (
             <>
                 {Object.entries(customizations).map(([key, value]) => (
