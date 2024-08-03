@@ -15,14 +15,14 @@ const UserPanel: React.FC<UserPanelProps> = ({ setUser, setPlate }) => {
 
     return (
         <div className="user-panel">
-            <UserCard
+            {/* <UserCard
                 title="ADM"
                 placeholder="Placa"
                 isSwitch={isAdmSwitchOn}
                 setIsSwitch={handleAdmSwitchChange}
                 setUser={setUser}
                 setPlate={setPlate}
-            />
+            /> */}
             <UserCard
                 title="User"
                 placeholder="Usuário"

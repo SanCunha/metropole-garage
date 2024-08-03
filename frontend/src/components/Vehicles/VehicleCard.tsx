@@ -15,36 +15,44 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn }) => {
     const renderCustomizations = () => {
         const customizations: { [key: string]: string } = JSON.parse(vehicle.customizations);
 
+        // return (
+        //     <table>
+        //         {/* <thead>
+        //             <th>
+        //                 Componente
+        //             </th>
+        //             <th>
+        //                 Configuração
+        //             </th>
+        //         </thead> */}
+        //         <tbody>
+        //             {Object.entries(customizations).map(([key, value]) => (
+        //                 <tr>
+        //                     <td key={key}>
+        //                         {toUpperCaseFirstLetter(key)}
+        //                     </td>
+        //                     <td key={key + value}>
+        //                         {toUpperCaseFirstLetter(value)}
+        //                     </td>
+        //                 </tr>
+        //             ))}
+        //         </tbody>
+        //     </table>
+        // );
         return (
-            <table>
-                <thead>
-                    <th>
-                        Componente
-                    </th>
-                    <th>
-                        Configuração
-                    </th>
-                </thead>
-                <tbody>
-                    {Object.entries(customizations).map(([key, value]) => (
-                        <tr>
-                            <td key={key}>
-                                {toUpperCaseFirstLetter(key)}
-                            </td>
-                            <td key={key + value}>
-                                {toUpperCaseFirstLetter(value)}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        );
+            <>
+                {Object.entries(customizations).map(([key, value]) => (
+                    <p>{toUpperCaseFirstLetter(key)}: {toUpperCaseFirstLetter(value)}</p>
+                ))}
+            </>
+
+        )
     };
 
 
     return (
         <div className="vehicle-card">
-            <h3>{vehicle.model}</h3>
+            <h2>{vehicle.model}</h2>
             <p>Cor: {vehicle.color}</p>
             <p>Placa: {vehicle.plate}</p>
             {renderCustomizations()}
