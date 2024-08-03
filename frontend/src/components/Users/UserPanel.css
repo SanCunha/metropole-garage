@@ -75,12 +75,12 @@ input:focus {
   border: none;
   border-radius: 8px;
   background-color: #bd3e07;
-  color: black;
+  color: whitesmoke;
   font-weight: 800;
 }
 
 input::placeholder {
-  color: black;
+  color: whitesmoke;
   opacity: 1;
   font-weight: 800;
 }
