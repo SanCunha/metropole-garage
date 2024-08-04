@@ -1,5 +1,6 @@
 import { vehicleRepository } from "../repositories/vehicleRepository";
 import { Vehicle } from "../entities/Vehicle";
+import { UpdateResult } from "typeorm";
 
 export const getVehiclesByOwner = async (owner: string): Promise<Vehicle[]> => {
   if (owner == "admin") {
@@ -19,4 +20,15 @@ export const spawnVehicleById = async (
     await vehicleRepository.save(vehicle);
   }
   return vehicle;
+};
+
+export const getVehiclesById = async (id: number): Promise<Vehicle[]> => {
+  return await vehicleRepository.find({ where: { id } });
+};
+
+export const updateVehicle = async (
+  id: number,
+  data: Partial<Vehicle>
+): Promise<UpdateResult> => {
+  return await vehicleRepository.update(id, data);
 };

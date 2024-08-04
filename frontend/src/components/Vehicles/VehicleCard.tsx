@@ -3,14 +3,15 @@ import './Vehicle.css'
 
 interface VehicleCardProps {
     vehicle: Vehicle;
-    onSpawn: (vehicleId: number) => void;
+    onSpawn: (vehicle: Vehicle) => void;
+    onDespawn: (vehicle: Vehicle) => void;
 }
 
 const toUpperCaseFirstLetter = (word: string) => {
     return word[0].toUpperCase() + word.substring(1)
 }
 
-const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn }) => {
+const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn, onDespawn }) => {
 
     const renderCustomizations = () => {
         const customizations: { [key: string]: string } = JSON.parse(vehicle.customizations);
@@ -24,6 +25,11 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn }) => {
         )
     };
 
+    const dataButton = {
+        className: vehicle.spawned ? "isSpawned" : "isNotSpawned",
+        onClick: vehicle.spawned ? () => onDespawn(vehicle) : () => onSpawn(vehicle),
+        text: vehicle.spawned ? "Despawn" : "Spawn"
+    }
 
     return (
         <div className="vehicle-card">
@@ -31,7 +37,7 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSpawn }) => {
             <p>Cor: {vehicle.color}</p>
             <p>Placa: {vehicle.plate}</p>
             {renderCustomizations()}
-            <button className={vehicle.spawned ? "isSpawned" : "isNotSpawned"} onClick={() => onSpawn(vehicle.id)}>{vehicle.spawned ? "Despawn" : "Spawn"}</button>
+            <button className={dataButton.className} onClick={dataButton.onClick}>{dataButton.text}</button>
         </div>
     );
 };

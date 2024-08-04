@@ -31,7 +31,7 @@ const UserPanel: React.FC<UserPanelProps> = ({ setUser, setPlate }) => {
         <div className="user-panel">
             <div className="user-card">
                 <div>
-                    <h3>User</h3>
+                    <h3>Usuário</h3>
                 </div>
                 <label className="switch">
                     <input
@@ -56,7 +56,7 @@ const UserPanel: React.FC<UserPanelProps> = ({ setUser, setPlate }) => {
                 ) : (
                     <input
                         type="text"
-                        placeholder="Usuário"
+                        placeholder="Steam"
                         className="search-input"
                         onChange={handleChangeInput}
                     />
