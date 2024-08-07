@@ -26,6 +26,10 @@ export const getVehiclesById = async (id: number): Promise<Vehicle[]> => {
   return await vehicleRepository.find({ where: { id } });
 };
 
+export const getVehicleById = async (id: number): Promise<Vehicle | null> => {
+  return await vehicleRepository.findOne({ where: { id } });
+};
+
 export const updateVehicle = async (
   id: number,
   data: Partial<Vehicle>
